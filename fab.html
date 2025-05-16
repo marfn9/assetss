@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .fab-container {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      z-index: 9999;
+    }
+
+    .fab-button {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fab-button img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+
+    .fab-text {
+      position: absolute;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .fab-hide {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      background: #1a1a1a;
+      color: #ffffff;
+      font-size: 16px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 10000;
+      text-shadow: 0 0 2px rgba(0,0,0,0.5);
+    }
+
+    .fab-menu {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .fab-item {
+      padding: 12px 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+      text-align: left;
+      min-width: 180px;
+      display: flex;
+      align-items: center;
+    }
+
+    .fab-item i {
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    .fab-item:hover {
+      opacity: 0.9;
+    }
+
+    .fab-item.facebook { background: #1877F2; }
+    .fab-item.telegram-group { background: #229ED9; }
+    .fab-item.telegram { background: #0088cc; }
+    .fab-item.livechat { background: #FF5722; }
+
+    .fab-close {
+      background: #333;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .fab-container {
+        bottom: 20px;
+        left: 20px;
+      }
+
+      .fab-button {
+        width: 60px;
+        height: 60px;
+      }
+
+      .fab-button img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .fab-hide {
+        top: -8px;
+        left: -8px;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+      }
+
+      .fab-item {
+        font-size: 13px;
+        min-width: 140px;
+        padding: 10px 12px;
+      }
+
+      .fab-close {
+        font-size: 12px;
+        padding: 2px 8px;
+      }
+
+      .fab-menu {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Action Button -->
+  <div class="fab-container" id="fabContainer">
+    <!-- Tombol Koin Utama -->
+    <div class="fab-button" onclick="toggleFab()" id="fabButton">
+      <img src="https://raw.githubusercontent.com/marfn9/assetss/refs/heads/main/coinvnd.webp" alt="24/7" />
+      <span class="fab-text"></span>
+      <div class="fab-hide" onclick="hideFab(event)">❌</div>
+    </div>
+
+    <!-- Menu Floating -->
+    <div class="fab-menu" id="fabMenu">
+      <div class="fab-close" onclick="toggleFab()">❌</div>
+      <a href="https://www.facebook.com/groups/1238568900339956" class="fab-item facebook">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
+      <a href="https://t.me/Vnd288" class="fab-item telegram-group">
+        <i class="fab fa-telegram-plane"></i> Nhóm Telegram
+      </a>
+      <a href="https://t.me/bet_288vnd" class="fab-item telegram">
+        <i class="fab fa-telegram"></i> Telegram
+      </a>
+      <a href="https://secure.livechatenterprise.com/licence/18895419/v2/open_chat.cgi" class="fab-item livechat">
+        <i class="fas fa-headset"></i> Trò chuyện trực tiếp
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function toggleFab() {
+      const menu = document.getElementById('fabMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function hideFab(event) {
+      event.stopPropagation();
+      const fab = document.getElementById('fabContainer');
+      fab.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
